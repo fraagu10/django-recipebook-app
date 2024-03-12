@@ -1,0 +1,17 @@
+nav {
+  background-color: #C25100;
+}
+
+footer {
+  background-color: #C25100;
+}
+
+button.btn {
+  background-color: #DAA520;
+  color: #FFF;
+}
+
+button.btn:hover {
+  background-color: #C25100;
+  color: #FFF;
+}

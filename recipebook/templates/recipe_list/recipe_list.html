@@ -1,0 +1,21 @@
+{% extends 'recipe_list/base.html' %}
+
+<!-- Blog entries-->
+{% block content %}
+    {% for recipe in recipes %}
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <a href="{% url 'recipe_detail' pk=recipe.pk %}">
+                    <img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="{{ recipe.title }}" />
+                </a>
+                <div class="card-body">
+                    <h2 class="card-title">{{ recipe.title }}</h2>
+                    <div class="small text-muted">Last updated: {{ recipe.last_updated }}</div>
+                    <br>
+                    <p class="card-text">{{ recipe.description }}</p>
+                    <button class="btn">Recipe Details</button>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
