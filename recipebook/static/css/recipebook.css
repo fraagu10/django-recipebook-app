@@ -7,11 +7,11 @@ footer {
 }
 
 button.btn {
-  background-color: #DAA520;
+  background-color: #C25100;
   color: #FFF;
 }
 
 button.btn:hover {
-  background-color: #f1f1f1;
-  
+  background-color: #DAA520;
+  color: #FFF;
 }
