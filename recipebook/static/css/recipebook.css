@@ -1,0 +1,17 @@
+nav {
+  background-color: rgb(108, 97, 233);
+}
+
+footer {
+  background-color: rgb(108, 97, 233);
+}
+
+button.btn {
+  background-color: rgb(108, 97, 233);
+  color: #FFF;
+}
+
+button.btn:hover {
+  background-color: #f1f1f1;
+  
+}
