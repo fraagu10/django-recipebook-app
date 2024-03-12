@@ -1,5 +1,4 @@
 from pathlib import Path
-import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,20 +8,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('.venv\shared\key.json') as f:
-    KEY = json.load(f)
-
-SECRET_KEY = KEY['SECRET_KEY']
+SECRET_KEY = "django-insecure-67tgd5xf!yg&sh9dqj-0%7&$h5a8(_k=l@bi$ay-m_^jp%0#&f"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
-
-# Production Settings
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
-SECURE_SSL_REDIRECT = False
 
 # Application definition
 
