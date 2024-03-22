@@ -2,12 +2,57 @@
 
 {% block content %}
     {% if recipe %}
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
-            <div class="card-header">{{ recipe.title }}</div>
-            <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="container mt-7">
+            <div class="card">
+              <img src="https://via.placeholder.com/300" alt="{{ recipe.title }}">
+              
+              <div class="card-body">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+                <p class="card-text">{{ recipe.description }}</p>
+              </div>
+
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Prep Time: {{ recipe.prep_time }} minutes</li>
+                <li class="list-group-item">Cook Time: {{ recipe.cook_time }} minutes</li>
+                <li class="list-group-item">Total Time: </li>
+              </ul>
+
+              <div class="card-body">
+                <h5 class="card-title">Ingredients</h5>
+                <ul class="list-group">
+                  <li class="list-group-item">Ingredient 1</li>
+                  <li class="list-group-item">Ingredient 2</li>
+                  <li class="list-group-item">Ingredient 3</li>
+                  <li class="list-group-item">Ingredient 4</li>
+                  <li class="list-group-item">Ingredient 5</li>
+                </ul>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">Instructions</h5>
+                <ol>
+                  <li>Mix ingredient 1 and ingredient 2 in a bowl.</li>
+                  <li>Add ingredient 3 and stir well.</li>
+                  <li>Heat a pan and pour the mixture.</li>
+                  <li>Cook until golden brown.</li>
+                  <li>Serve hot and enjoy!</li>
+                </ol>
+              </div>
+
+              <div class="card-footer text-muted">
+                <p>Created by: {{ recipe.author_name }}</p>
+                <time class="date">{{ recipe.created_date }}</time>
+                
+                {% if user.is_authenticated %}
+                    <aside class="actions">
+                        <a class="btn btn-secondary" href="{% url 'recipe_edit' pk=recipe.pk %}">
+                        {% include './icons/pencil-fill.svg' %}
+                        </a>
+                    </aside>
+                {% endif %}
+              </div>
+
             </div>
-        </div>
+          </div>
     {% endif %}
 {% endblock %}

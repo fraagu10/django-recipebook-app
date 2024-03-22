@@ -20,7 +20,6 @@ def recipedia_home(request):
 
 def recipe_new(request):
     form = RecipeForm()
-
     if request.method == "POST":
         form = RecipeForm(request.POST)
         if form.is_valid():
@@ -33,3 +32,19 @@ def recipe_new(request):
             return redirect('recipe_detail', pk=recipe.pk)
     
     return render(request, "recipe_list/recipe_add.html", {'form': form})
+
+def recipe_edit(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+    form = RecipeForm(instance=recipe)
+    if request.method == "POST":
+        form = RecipeForm(request.POST, instance=recipe)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.author_name = request.user 
+            recipe.created_date = timezone.now()
+            recipe.last_updated = timezone.now()
+            recipe.save()
+
+            return redirect('recipe_detail', pk=recipe.pk)            
+        
+    return render(request, 'recipe_list/recipe_add.html', {'form': form})
