@@ -45,8 +45,8 @@
                 
                 {% if user.is_authenticated %}
                     <aside class="actions">
-                        <a class="btn btn-secondary" href="{% url 'recipe_edit' pk=recipe.pk %}">
-                        {% include './icons/pencil-fill.svg' %}
+                        <a class="btn" href="{% url 'recipe_edit' pk=recipe.pk %}">
+                          {% include './icons/pencil-fill.svg' %}
                         </a>
                     </aside>
                 {% endif %}

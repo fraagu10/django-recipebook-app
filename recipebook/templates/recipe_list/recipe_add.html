@@ -4,6 +4,6 @@
     <h2>New recipe</h2>
     <form method="POST" class="recipe-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-secondary">Save</button>
+        <button type="submit" class="btn">Save</button>
     </form>
 {% endblock %}
